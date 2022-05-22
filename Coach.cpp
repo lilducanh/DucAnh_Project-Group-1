@@ -34,7 +34,31 @@ class Coach : public Person {
 		  } 
 		  float getTime() {
 			return this->TimeInTerm ;
-		}
+		} 
+		void setPositionOfCoach() {
+			this->positionOfCoach=positionOfCoach ;
+		} 
+		void setWins () {
+			this->numOfWin=numOfwin ;
+		} 
+		void setLoses() {
+			this->numOfLose=numOfLose ;
+		} 
+		void setTitle () {
+			this->titleNumber=titleNumber ;
+		} 
+		void setExperience () {
+			this->experience=experience ;
+		} 
+		void setOldClubs() {
+			this->oldClubs=oldClubss
+		} 
+		void setBonus () {
+			this->bounus=bonus ;
+		} 
+		void setTime () {
+			this->TimeInTerm=TimeInTerm ;
+		} 
 	    Coach() {
 	    this->	positionOfCoach="" ;
 	       this-> numOfWin=0;

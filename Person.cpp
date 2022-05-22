@@ -22,7 +22,22 @@ class Person {
 		} 
 		string getPosition () {
 			return this->position ;
+		}  
+		void setId () {
+			this->idCardNumber=idCardNumber ;
 		} 
+		void setName () {
+			this->fullName=fullName ;
+		} 
+		void setAge() {
+			this->age=age ;
+		} 
+		void setSalary() {
+			this->salary=salary ;
+		} 
+		void setPosition () {
+			this->position=position ;
+		}
 	 Person() {
 	 	this->idCardNumber=0;
 	    this->fullName="" ;

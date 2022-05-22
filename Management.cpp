@@ -26,7 +26,25 @@ class Management:public Person {
 			 } 
 			  float getTime() {
 			  	return this->TimeInTerm ;
-			  }
+			   } 
+			void setExp () {
+				this->expManage=expManage;
+			} 
+			void setPurchase () {
+				this->purAmountInTerm =purAmountInTerm  ;
+			} 
+			void setNumberOfPlayerAndCoachBrought () {
+				this->numberOfPlayerAndCoachBrought=numberOfPlayerAndCoachBrought ;
+			} 
+			void setNumOfTitleInTerm () {
+				this-> numOfTitleInTerm= numOfTitleInTerm ;
+			} 
+			void setTactics () {
+				this-> favTactics  = favTactics   ;
+			} 
+			void setTime () {
+				this->TimeInTerm =TimeInTerm  ;
+			}
 		 	Managemet (  ) {
 		  this->expManage = 0 ;
 		  this->TimeInTerm="" ;
@@ -48,6 +66,9 @@ class Management:public Person {
 			cin>>this->numberOfPlayerAndCoachBrought;
 			cout<<"numOfTitleInTerm " ;
 			cin>>this->numOfTitleInTerm  ; 	
+			cin.ignore() ;
+ 			cout<<"Favourite Tactics :" ;
+			getline(cin,this->favTactics) ;
 			
  		} 
 		void output () {
@@ -57,7 +78,8 @@ class Management:public Person {
 			cout<<"purAmountInTerm"<<this->purAmountInTerm <<"\t" ;
 			cout<<"numberOfPlayerAndCoachBrought"<<this->numberOfPlayerAndCoachBrought<<"\t" ;
 			cout<<"numOfTitleInTerm " <<this->numOfTitleInTerm<<"\t" ;
-			cout<<"Time in Term :"<<this->TimeInTerm<<"\t" ;		
+			cout<<"Time in Term :"<<this->TimeInTerm<<"\t" ;	
+			cout<<"Favourite Tactics :"<<this->favTactics<<"\t" ;	
 	}			 
 		string mission () { 
   		    string use ;

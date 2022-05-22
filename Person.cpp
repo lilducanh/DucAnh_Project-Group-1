@@ -22,57 +22,39 @@ class Person {
 		} 
 		string getPosition () {
 			return this->position ;
-		}
+		} 
 	 Person() {
-	 	idCardNumber=0;
-	    fullName="" ;
-	     age=0;
-	 	salary=0;
-	 	position="";
+	 	this->idCardNumber=0;
+	    this->fullName="" ;
+	     this->age=0;
+	 	this->salary=0;
+	 	this->position="";
+	 
 	 } 
 	 
 	 void input () {
 	 //	FootballClub::input() ;
 	 	cout<<"CardNumber :" ;
-	 	cin>>idCardNumber ;
+	 	cin>>this->idCardNumber ;
 	 	cin.ignore();
 	 	cout<<"Full name :" ;
-	 	getline(cin,fullName) ;
+	 	getline(cin,this->fullName) ;
 	 	cout<<"Age :" ;
-	 	cin>>age ;
+	 	cin>>this->age ;
 	 	cout<<"Salary :" ;
-	 	cin>>salary ;
+	 	cin>>this->salary ;
 	 	cin.ignore() ;
 	 	cout<<"Position :" ;
-	 	getline(cin,position) ;
+	 	getline(cin,this->position) ;
  	 } 
  	 void output() {
  	 //	FootballClub::output() ; 
- 	 	cout<<"CardNumber :"<<idCardNumber<<"\t";
- 	 	cout<<"Full Name :" <<fullName <<"\t" ;
- 	 	cout<<"Age :" <<age<<"\t" ;
- 	 	cout<<"Salary :"<<salary<<"\t" ;
- 	 	cout<<"Position"<<position<<"\t" ;
+ 	 	cout<<"CardNumber :"<<this->idCardNumber<<"\t";
+ 	 	cout<<"Full Name :" <<this->fullName <<"\t" ;
+ 	 	cout<<"Age :" <<this->age<<"\t" ;
+ 	 	cout<<"Salary :"<<this->salary<<"\t" ;
+ 	 	cout<<"Position"<<this->position<<"\t" ;
 	  } 
 	   
 }; 
-//class PersonList:public Person {
-//	public : 
-//	void inputl(Person p[],int &n) { 
-//	for(int i= 0 ;i<n;i++) {
-//		p[i].input() ;
-//	}
-//} 
-//    void outputl(Person p[] ,int n) {
-//    	for(int i = 0 ; i<n ; i ++) 
-//    	p[i].output() ;
-//	}
-//	
-//}; 
-int main() {
-	Person p ;
-    // p.input() ;
-    // p.output() ;
-	p.getName() ;
 
- }

@@ -9,6 +9,7 @@ class Coach : public Person {
 	    int experience ;
 	    string oldClubs ;
 	    double bounus ;
+	    float TimeInTerm ;
 	public :
 	     string getPosCoach () {
 	     	return this->positionOfCoach ;
@@ -30,43 +31,51 @@ class Coach : public Person {
 		  } 
 		  double getBonus() {
 		  	return this->bounus ;
-		  }
+		  } 
+		  float getTime() {
+			return this->TimeInTerm ;
+		}
 	    Coach() {
-	    	positionOfCoach="" ;
-	        numOfWin=0;
-	       numOfLose=0;
-	        titleNumber=0;
-	    	experience ;
-	    	oldClubs="" ;
-	    	bounus=0;
+	    this->	positionOfCoach="" ;
+	       this-> numOfWin=0;
+	       this->numOfLose=0;
+	        this->titleNumber=0;
+	    	this->experience ;
+	    	this->oldClubs="" ;
+	    	this->bounus=0;
+	    	this->TimeInTerm =" " ;
 		} 
 		void input() {
 			Person::input() ;
 			cout<<"Position of Coach " ;
-			getline(cin,positionOfCoach) ;
+			cout<<"Choose : HeadCoach,MentalCoach , HealCoach :" ;
+			getline(cin,this->positionOfCoach) ;
 			cout<<"Num of Wins :" ;
-			cin>>numOfWin ;
+			cin>>this->numOfWin ;
 			cout<<"Num of Loses :" ;
-			cin>>numOfLose ;
+			cin>>this->numOfLose ;
 			cout<<"Number of Titles:" ;
-			cin>>titleNumber ;
+			cin>>this->titleNumber ;
 			cout<<"Experience :" ;
-			cin>>experience ;
+			cin>>this->experience ;
 			cin.ignore() ;
 			cout<<"Old Clubs :"  ;
-			getline(cin,oldClubs ) ;
+			getline(cin,this->oldClubs ) ;
 			cout<<"Bonus :" ;
-			cin>>bounus ;
+			cin>>this->bounus ;
+			cout<<"Time in term :" ;
+			cin>>this->TimeInTerm ;
 		} 
 		void output() {
 			Person::output() ;
-			cout<<"Position of Coach "<<positionOfCoach<<"\t";
-			cout<<"Num of Wins :"<<numOfWin<<"\t";
-			cout<<"Num of Loses :"<<numOfLose <<"\t";
-			cout<<"Number of Titles:"<<titleNumber <<"\t";
-			cout<<"Experience :"<<xperience <<"\t";
-			cout<<"Old Clubs :"<<oldClubs  <<"\t";
-			cout<<"Bonus :"<<bounus <<"\t";	
+			cout<<"Position of Coach "<<this->positionOfCoach<<"\t";
+			cout<<"Num of Wins :"<<this->numOfWin<<"\t";
+			cout<<"Num of Loses :"<<this->numOfLose <<"\t";
+			cout<<"Number of Titles:"<<this->titleNumber <<"\t";
+			cout<<"Experience :"<<this->xperience <<"\t";
+			cout<<"Old Clubs :"<<this->oldClubs  <<"\t";
+			cout<<"Bonus :"<<this->bounus <<"\t";
+			cout<<"Time in term :" <<this->TimeInTerm<<"\t"	
   		} 
   		string mission () { 
   		    string use ;
@@ -75,8 +84,16 @@ class Coach : public Person {
   			cout<<use ;
 		  } 
 		double calculateWage() {
-			float calculate=salary*bounus ;
-			cout<<calculate ;	
+			if(this->positionOfCoach='HeadCoach') {
+				float calculateWage =salary*bonus*1000 ;
+			}
+			if(this->positionOfCoach='MentalCoach' ) {
+					float calculateWage=salary*bonus*800 ;
+			} 
+			if(this->positionOfCoach='HealCoach')  {
+				float calculateWage=salary*bonus*700 ;
+			}
+			return calculateWage() ;
 		} 
 		bool check  {
 			if( numOfWin>25) 
@@ -97,7 +114,8 @@ class Coach : public Person {
 			}
 		}
  		bool signingCondition () {
-			if(check=true) 
+ 			// danh hieu 
+			if(check=true&&this->titleNumber>10) 
 			cout<<"Stay " ;
 			else  
 			cout<<"Khong dap ung duoc dieu kien """ ;
@@ -110,11 +128,18 @@ class Coach : public Person {
 			}
 		} 
 		void oppRenewContract () {
-			
+			if(this->numOfWin>30&&this->TimeInTerm) {
+				cout<<"Duoc gia han :" ;
+			} 
+			else 
+			cout<<"Khong dap ung duoc yeu cau " ;
+			xoa_coach(c,n) ;
 		} 
 		void valueBringingLastSeason () {
-			if(numOfWin>30) 
-			cout<<"............."
+			if(this->this->TimeInTerm<1)  
+			else 
+			cout<<"Num of win :"<<this->numOfWin ;
+			cout<<"Num of win :"<<this->numOfLose;
 		}
 		 
 		  

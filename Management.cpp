@@ -7,6 +7,7 @@ class Management:public Person {
 		 int numberOfPlayerAndCoachBrought  ; 
 		 int numOfTitleInTerm ;
 		 string favTactics  ;
+		float TimeInTerm ;
 		 public :
 		 	int getExp () {
 		 		return expManage ;
@@ -22,31 +23,41 @@ class Management:public Person {
 			 } 
 			string getFavTactics () {
 			 	return favTactics  ;
-			 }
+			 } 
+			  float getTime() {
+			  	return this->TimeInTerm ;
+			  }
 		 	Managemet (  ) {
-		  expManage = 0 ;
-		  purAmountInTerm = "" ;
-		  numberOfPlayerAndCoachBrought = 0  ; 
-		  numOfTitleInTerm = 0;
-		  favTactics=""  ;
+		  this->expManage = 0 ;
+		  this->TimeInTerm="" ;
+		  this->purAmountInTerm = "" ;
+		  this->numberOfPlayerAndCoachBrought = 0  ; 
+		  this->numOfTitleInTerm = 0;
+		  this->favTactics=""  ;
+		  
 			 } 
 		void input() {
 			Person::input() ;
 			cout<<"expManage ";
-			cin>>expManage ;
+			cin>>this->expManage ;
+			cout<<"Time in term :" ;
+			cin>>this->TimeInTerm  ;
 			cout<<"purAmountInTerm" ;
-			cin>>purAmountInTerm ;
+			cin>>this->purAmountInTerm ;
 			cout<<"numberOfPlayerAndCoachBrought" ;
-			cin>>numberOfPlayerAndCoachBrought;
+			cin>>this->numberOfPlayerAndCoachBrought;
 			cout<<"numOfTitleInTerm " ;
-			cin>>numOfTitleInTerm  ; 	
-		} 
+			cin>>this->numOfTitleInTerm  ; 	
+			
+ 		} 
 		void output () {
 			Person::output() ;
-			cout<<"expManage "<<expManage<<"\t" ;
-			cout<<"purAmountInTerm"<<expManage<<"\t" ;
-			cout<<"numberOfPlayerAndCoachBrought"<<numberOfPlayerAndCoachBrought<<"\t" ;
-			cout<<"numOfTitleInTerm " <<numOfTitleInTerm<<"\t" 			
+			cout<<"Time in Term :"<<this->TimeInTerm ;		
+			cout<<"expManage "<<this->expManage<<"\t" ;
+			cout<<"purAmountInTerm"<<this->purAmountInTerm <<"\t" ;
+			cout<<"numberOfPlayerAndCoachBrought"<<this->numberOfPlayerAndCoachBrought<<"\t" ;
+			cout<<"numOfTitleInTerm " <<this->numOfTitleInTerm<<"\t" ;
+			cout<<"Time in Term :"<<this->TimeInTerm<<"\t" ;		
 	}			 
 		string mission () { 
   		    string use ;
@@ -55,11 +66,11 @@ class Management:public Person {
   			cout<<use ;
 		  } 
 		  double calculateWage() {
-			float calculate=salary*bounus ;
-			cout<<calculate ;	
+		double calculateWage=salary*bonus*850 ;
+		return calculateWage ();
 		}  
 			bool check  {
-			if( numOfTitleInTerm>5) 
+			if( this->numOfTitleInTerm>5) 
 			return true ;
 			else 
 			return false  ;
@@ -77,24 +88,32 @@ class Management:public Person {
 			}
 		}
  		bool signingCondition () {
-			if(check=true) 
+			if(check=true&&this->TimeInTerm&&this->numOfTitleInTerm>3) 
 			cout<<"Stay " ;
 			else  
 			cout<<"Khong dap ung duoc dieu kien """ ;
 		      xoa_manage(c,n)  ;	
 		} 
 			void riskOfTerminateContract() {
-			if(check==false) {
+			if(check==false&&this->numberOfPlayerAndCoachBrought<70&&this->numOfTitleInTerm=0) {
 				cout<<"Sa thai :" ;
 				xoa_manage(c,n) ;
 			}
 		} 
 			void oppRenewContract () {
-			
+		     if(this->TimeInTerm>10&&this->numberOfPlayerAndCoachBrought&&this->numOfTitleInTerm>2)	 
+		     cout<<"stay " ;
+		     else 
+		     cout<<"Khong dap ung duoc yeu cau :" ;
+		     xoa_manage(c,n) ;
 		} 
 		void valueBringingLastSeason () {
-			if(numOfWin>30) 
-			cout<<"............."
+			if(this->TimeInTerm<1) 
+			cout<<"............." ;
+			else
+			cout<<"purAmountInTerm"<<this->purAmountInTerm <<"\t" ;
+			cout<<"numberOfPlayerAndCoachBrought"<<this->numberOfPlayerAndCoachBrought<<"\t" ;
+			cout<<"numOfTitleInTerm " <<this->numOfTitleInTerm<<"\t" ; 	
 		} 			 
 					 
 					 

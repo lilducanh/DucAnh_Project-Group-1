@@ -35,25 +35,25 @@ class Coach : public Person {
 		  float getTime() {
 			return this->TimeInTerm ;
 		} 
-		void setPositionOfCoach() {
-			this->positionOfCoach=positionOfCoach ;
+		void setPositionOfCoach(string Position) {
+			this->positionOfCoach=Position ;
 		} 
-		void setWins () {
-			this->numOfWin=numOfwin ;
+      	void setWins (int Wins) {
+			this->numOfWin=Wins;
 		} 
-		void setLoses() {
-			this->numOfLose=numOfLose ;
+		void setLoses(int Loses) {
+			this->numOfLose=Loses ;
 		} 
-		void setTitle () {
-			this->titleNumber=titleNumber ;
+		void setTitle (int Title) {
+			this->titleNumber=Title ;
 		} 
-		void setExperience () {
-			this->experience=experience ;
+		void setExperience (float Exp) {
+			this->experience=Exp ;
 		} 
-		void setOldClubs() {
-			this->oldClubs=oldClubss
+		void setOldClubs(string Oldclubs) {
+			this->oldClubs=Oldclubs ;
 		} 
-		void setBonus () {
+		void setBonus (double bonus) {
 			this->bounus=bonus ;
 		} 
 		void setTime () {
@@ -67,12 +67,12 @@ class Coach : public Person {
 	    	this->experience ;
 	    	this->oldClubs="" ;
 	    	this->bounus=0;
-	    	this->TimeInTerm =" " ;
+	    	//this->TimeInTerm ="" ;
 		} 
 		void input() {
 			Person::input() ;
 			cout<<"Position of Coach " ;
-			cout<<"Choose : HeadCoach,MentalCoach , HealCoach :" ;
+			cout<<"Choose : HeadCoach or AssistantCoach:" ;
 			getline(cin,this->positionOfCoach) ;
 			cout<<"Num of Wins :" ;
 			cin>>this->numOfWin ;
@@ -96,77 +96,73 @@ class Coach : public Person {
 			cout<<"Num of Wins :"<<this->numOfWin<<"\t";
 			cout<<"Num of Loses :"<<this->numOfLose <<"\t";
 			cout<<"Number of Titles:"<<this->titleNumber <<"\t";
-			cout<<"Experience :"<<this->xperience <<"\t";
+			cout<<"Experience :"<<this->experience <<"\t";
 			cout<<"Old Clubs :"<<this->oldClubs  <<"\t";
 			cout<<"Bonus :"<<this->bounus <<"\t";
-			cout<<"Time in term :" <<this->TimeInTerm<<"\t"	
+			cout<<"Time in term :" <<this->TimeInTerm<<"\t"	;
   		} 
   		string mission () { 
+  		cin.ignore() ;
   		    string use ;
   			cout<<"Aim :" ;
-  			getline(cin,this->use) ;
-  			cout<<use ;
+  			getline(cin,use) ;
+  		
 		  } 
 		double calculateWage() {
-			if(this->positionOfCoach='HeadCoach') {
-				float calculateWage =salary*bonus*1000 ;
-			}
-			if(this->positionOfCoach='MentalCoach' ) {
-					float calculateWage=salary*bonus*800 ;
-			} 
-			if(this->positionOfCoach='HealCoach')  {
-				float calculateWage=salary*bonus*700 ;
+			while(1){
+				char chon;
+				char loai;
+				cout << "\nHeadCoach Or AssistantCoach(H/C): ";
+				cin >> loai;
+				loai = toupper(loai);
+				if(loai == 'H'){
+				return getSalary()*this->bounus*1000;
+				cout<<calculateWage( ) ;
+				}else{
+				return getSalary()*this->bounus*800;
+				}
+			
 			}
 			return calculateWage() ;
-		} 
-		bool check  {
-			if( numOfWin>25) 
-			return true ;
-			else 
-			return false  ;
-		} 
-		void xoa (Coach c[100 ] ,int &n , int vi_tri ) {
-			for(int i= vi_tri ;i<n;i++  ) {
-				c[i] =c[i+1] ;
-			} 
-			n--;
-		} 
-		void xoa_coach(Coach c[100] , int &n ) {
-			for(int i =0;i<n;i++) {
-				if(check==false) 
-				xoa(c,n,i) ;
-			}
-		}
+		
+		}  
  		bool signingCondition () {
- 			// danh hieu 
-			if(check=true&&this->titleNumber>10) 
-			cout<<"Stay " ;
+			if(this->numOfWin>30&&this->experience>5) 
+			return true ;
 			else  
-			cout<<"Khong dap ung duoc dieu kien """ ;
-		      xoa_coach(c,n)  ;	
+			return false ;
+           
+		} 
+		void SingingCondition () {
+			if(signingCondition()==true) {
+				cout<<"Dieu kien de ki hop dong :Dap ung duoc dieu kien " ;
+			} 
+			else {
+				cout<<"Dieu kien de ki hop dong: Khong dat yeu cau " ;
+			}
 		}
 		void riskOfTerminateContract() {
-			if(check==false) {
+			if(this->numOfLose>40) {
 				cout<<"Sa thai :" ;
-				xoa_coach(c,n) ;
-			}
-		} 
+
+			} 
+		}
+		
 		void oppRenewContract () {
-			if(this->numOfWin>30&&this->TimeInTerm) {
+			if(this->numOfWin>30) {
 				cout<<"Duoc gia han :" ;
 			} 
 			else 
 			cout<<"Khong dap ung duoc yeu cau " ;
-			xoa_coach(c,n) ;
+
 		} 
 		void valueBringingLastSeason () {
-			if(this->this->TimeInTerm<1)  
+			if(this->TimeInTerm<1)   
+			{
+				cout<<"..." ;
+			}
 			else 
 			cout<<"Num of win :"<<this->numOfWin ;
 			cout<<"Num of win :"<<this->numOfLose;
 		}
-		 
-		  
-		
-		
 };

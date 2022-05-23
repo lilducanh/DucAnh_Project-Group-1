@@ -23,19 +23,19 @@ class Person {
 		string getPosition () {
 			return this->position ;
 		}  
-		void setId () {
-			this->idCardNumber=idCardNumber ;
+		void setId (int ID) {
+			this->idCardNumber=ID ;
 		} 
-		void setName () {
-			this->fullName=fullName ;
+		void setName (string name) {
+			this->fullName=name ;
 		} 
-		void setAge() {
+		void setAge(float age) {
 			this->age=age ;
 		} 
-		void setSalary() {
+		void setSalary(float salary) {
 			this->salary=salary ;
 		} 
-		void setPosition () {
+		void setPosition (string position) {
 			this->position=position ;
 		}
 	 Person() {

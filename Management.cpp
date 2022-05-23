@@ -1,5 +1,4 @@
 #include<Coach.cpp> 
-using namespace std 
 class Management:public Person {
 	private :
 		int expManage ;
@@ -7,7 +6,10 @@ class Management:public Person {
 		 int numberOfPlayerAndCoachBrought  ; 
 		 int numOfTitleInTerm ;
 		 string favTactics  ;
-		float TimeInTerm ;
+		 float TimeInTerm;
+	    float bonus ;
+	    
+	
 		 public :
 		 	int getExp () {
 		 		return expManage ;
@@ -27,31 +29,39 @@ class Management:public Person {
 			  float getTime() {
 			  	return this->TimeInTerm ;
 			   } 
-			void setExp () {
+			   float getBonus () {
+			   	return this->bonus ;
+			   }
+			void setExpManage (int expManage) {
 				this->expManage=expManage;
 			} 
-			void setPurchase () {
-				this->purAmountInTerm =purAmountInTerm  ;
+			void setPurchase (float purchase) {
+				this->purAmountInTerm =purchase  ;
 			} 
-			void setNumberOfPlayerAndCoachBrought () {
-				this->numberOfPlayerAndCoachBrought=numberOfPlayerAndCoachBrought ;
+			void setNumberOfPlayerAndCoachBrought (int NumberOfPlayerAndCoachBrought  ) {
+				this->numberOfPlayerAndCoachBrought=NumberOfPlayerAndCoachBrought ;
 			} 
 			void setNumOfTitleInTerm () {
 				this-> numOfTitleInTerm= numOfTitleInTerm ;
 			} 
-			void setTactics () {
-				this-> favTactics  = favTactics   ;
+			void setTactics (string Tactics) {
+				this-> favTactics  = Tactics   ;
 			} 
-			void setTime () {
-				this->TimeInTerm =TimeInTerm  ;
+			void setTime (float Time) {
+				this->TimeInTerm =Time  ;
+			} 
+			void setBonus (float bonus) {
+				this->bonus=bonus ;
 			}
 		 	Managemet (  ) {
 		  this->expManage = 0 ;
-		  this->TimeInTerm="" ;
-		  this->purAmountInTerm = "" ;
+		  this->TimeInTerm =0 ;
+		  this->purAmountInTerm = 0 ;
 		  this->numberOfPlayerAndCoachBrought = 0  ; 
 		  this->numOfTitleInTerm = 0;
 		  this->favTactics=""  ;
+		  this->bonus=0;
+		  
 		  
 			 } 
 		void input() {
@@ -69,6 +79,8 @@ class Management:public Person {
 			cin.ignore() ;
  			cout<<"Favourite Tactics :" ;
 			getline(cin,this->favTactics) ;
+			cout<<"Bonus :" ;
+			cin>>this->bonus;
 			
  		} 
 		void output () {
@@ -81,53 +93,45 @@ class Management:public Person {
 			cout<<"Time in Term :"<<this->TimeInTerm<<"\t" ;	
 			cout<<"Favourite Tactics :"<<this->favTactics<<"\t" ;	
 	}			 
-		string mission () { 
+			string mission () { 
+  		cin.ignore() ;
   		    string use ;
   			cout<<"Aim :" ;
-  			getline(cin,this->use) ;
-  			cout<<use ;
+  			getline(cin,use) ;
+  		
 		  } 
 		  double calculateWage() {
-		double calculateWage=salary*bonus*850 ;
-		return calculateWage ();
+		return getSalary()*this->getBonus()*850 ;
+		cout<< calculateWage ();
 		}  
-			bool check  {
-			if( this->numOfTitleInTerm>5) 
+			
+		
+ 	bool signingCondition () {
+			if(this->numberOfPlayerAndCoachBrought&&this->expManage>5) 
 			return true ;
-			else 
-			return false  ;
-		} 
-		void xoa (Manage m[100 ] ,int &n , int vi_tri ) {
-			for(int i= vi_tri ;i<n;i++  ) {
-				m[i] =m[i+1] ;
+			else  
+			return false ;
+           
+		}  
+		void SingingCondition () {
+			if(signingCondition()==true) {
+				cout<<"Dieu kien de ki hop dong :Dap ung duoc dieu kien " ;
 			} 
-			n--;
-		} 
-		void xoa_manage(Manage m[100] , int &n ) {
-			for(int i =0;i<n;i++) {
-				if(check==false) 
-				xoa(m,n,i) ;
+			else {
+				cout<<"Dieu kien de ki hop dong: Khong dat yeu cau " ;
 			}
 		}
- 		bool signingCondition () {
-			if(check=true&&this->TimeInTerm&&this->numOfTitleInTerm>3) 
-			cout<<"Stay " ;
-			else  
-			cout<<"Khong dap ung duoc dieu kien """ ;
-		      xoa_manage(c,n)  ;	
-		} 
-			void riskOfTerminateContract() {
-			if(check==false&&this->numberOfPlayerAndCoachBrought<70&&this->numOfTitleInTerm=0) {
+		void riskOfTerminateContract() {
+			if(this->numOfTitleInTerm=0) {
 				cout<<"Sa thai :" ;
-				xoa_manage(c,n) ;
-			}
-		} 
+			} 
+		}	
 			void oppRenewContract () {
 		     if(this->TimeInTerm>10&&this->numberOfPlayerAndCoachBrought&&this->numOfTitleInTerm>2)	 
 		     cout<<"stay " ;
 		     else 
 		     cout<<"Khong dap ung duoc yeu cau :" ;
-		     xoa_manage(c,n) ;
+		     
 		} 
 		void valueBringingLastSeason () {
 			if(this->TimeInTerm<1) 

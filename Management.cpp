@@ -3,13 +3,7 @@ class Management:public Person {
 	private :
 		int expManage ;
 		long long purAmountInTerm ;
-		 int numberOfPlayerAndCoachBrought  ; 
-		 int numOfTitleInTerm ;
-		 string favTactics  ;
-		 float TimeInTerm;
-	    float bonus ;
-	    
-	
+		int qualityOfTransfer;
 		 public :
 		 	int getExp () {
 		 		return expManage ;
@@ -17,133 +11,83 @@ class Management:public Person {
 			 long long getpurAmountInTerm () {
 			 	return purAmountInTerm ;
 			 } 
-			 int getnumberOfPlayerAndCoachBrought  () {
-			 	return numberOfPlayerAndCoachBrought ;
-			 } 
-			 int getnumOfTitleInTerm () {
-			 	return numOfTitleInTerm  ;
-			 } 
-			string getFavTactics () {
-			 	return favTactics  ;
-			 } 
-			  float getTime() {
-			  	return this->TimeInTerm ;
-			   } 
-			   float getBonus () {
-			   	return this->bonus ;
-			   }
+			int getQualityOfTransfer() {
+				return qualityOfTransfer ;
+			}
+			 
 			void setExpManage (int expManage) {
 				this->expManage=expManage;
 			} 
 			void setPurchase (float purchase) {
 				this->purAmountInTerm =purchase  ;
-			} 
-			void setNumberOfPlayerAndCoachBrought (int NumberOfPlayerAndCoachBrought  ) {
-				this->numberOfPlayerAndCoachBrought=NumberOfPlayerAndCoachBrought ;
-			} 
-			void setNumOfTitleInTerm () {
-				this-> numOfTitleInTerm= numOfTitleInTerm ;
-			} 
-			void setTactics (string Tactics) {
-				this-> favTactics  = Tactics   ;
-			} 
-			void setTime (float Time) {
-				this->TimeInTerm =Time  ;
-			} 
-			void setBonus (float bonus) {
-				this->bonus=bonus ;
+			} 	
+		    void setQualityOfTransfer(int quality) {
+		    	this->qualityOfTransfer=quality ;
 			}
+		
 		 	Managemet (  ) {
 		  this->expManage = 0 ;
-		  this->TimeInTerm =0 ;
+	      this->qualityOfTransfer=0;
 		  this->purAmountInTerm = 0 ;
-		  this->numberOfPlayerAndCoachBrought = 0  ; 
-		  this->numOfTitleInTerm = 0;
-		  this->favTactics=""  ;
-		  this->bonus=0;
-		  
-		  
 			 } 
 		void input() {
 			Person::input() ;
 			cout<<"expManage ";
 			cin>>this->expManage ;
-			cout<<"Time in term :" ;
-			cin>>this->TimeInTerm  ;
 			cout<<"purAmountInTerm" ;
 			cin>>this->purAmountInTerm ;
-			cout<<"numberOfPlayerAndCoachBrought" ;
-			cin>>this->numberOfPlayerAndCoachBrought;
-			cout<<"numOfTitleInTerm " ;
-			cin>>this->numOfTitleInTerm  ; 	
-			cin.ignore() ;
- 			cout<<"Favourite Tactics :" ;
-			getline(cin,this->favTactics) ;
-			cout<<"Bonus :" ;
-			cin>>this->bonus;
-			
+			cout<<"Quality of Transfer  (1-10) : " ; 
+			do { 
+				cout<<"Quality of Transfer  (1-10) : " ; 
+				cin>>this->qualityOfTransfer;	
+			} while (this->qualityOfTransfer<0||this->qualityOfTransfer>10)  ;
+			   	
  		} 
 		void output () {
 			Person::output() ;
-			cout<<"Time in Term :"<<this->TimeInTerm ;		
 			cout<<"expManage "<<this->expManage<<"\t" ;
-			cout<<"purAmountInTerm"<<this->purAmountInTerm <<"\t" ;
-			cout<<"numberOfPlayerAndCoachBrought"<<this->numberOfPlayerAndCoachBrought<<"\t" ;
-			cout<<"numOfTitleInTerm " <<this->numOfTitleInTerm<<"\t" ;
-			cout<<"Time in Term :"<<this->TimeInTerm<<"\t" ;	
-			cout<<"Favourite Tactics :"<<this->favTactics<<"\t" ;	
+			cout<<"purAmountInTerm"<<this->purAmountInTerm <<"\t" ;	
+			cout<<"Quality of Transfer "<<this->qualityOfTransfer<<"\t" ;	
 	}			 
 			string mission () { 
-  		cin.ignore() ;
-  		    string use ;
-  			cout<<"Aim :" ;
-  			getline(cin,use) ;
-  		
+  		    string mission ="Management and Transfers";
+  		    return mission ;
+  		    
 		  } 
-		  double calculateWage() {
-		return getSalary()*this->getBonus()*850 ;
-		cout<< calculateWage ();
+		  long long calculateWage() {
+	       
 		}  
 			
 		
- 	bool signingCondition () {
-			if(this->numberOfPlayerAndCoachBrought&&this->expManage>5) 
+ 	    bool signingCondition () {
+			if(this->expManage>5&&this->purAmountInTerm<10000000&&this->qualityOfTransfer>=5) 
 			return true ;
 			else  
 			return false ;
-           
 		}  
-		void SingingCondition () {
-			if(signingCondition()==true) {
-				cout<<"Dieu kien de ki hop dong :Dap ung duoc dieu kien " ;
-			} 
-			else {
-				cout<<"Dieu kien de ki hop dong: Khong dat yeu cau " ;
-			}
-		}
+		
 		void riskOfTerminateContract() {
-			if(this->numOfTitleInTerm=0) {
-				cout<<"Sa thai :" ;
-			} 
+			
 		}	
 			void oppRenewContract () {
-		     if(this->TimeInTerm>10&&this->numberOfPlayerAndCoachBrought&&this->numOfTitleInTerm>2)	 
-		     cout<<"stay " ;
-		     else 
-		     cout<<"Khong dap ung duoc yeu cau :" ;
+		    
 		     
 		} 
-		void valueBringingLastSeason () {
-			if(this->TimeInTerm<1) 
-			cout<<"............." ;
-			else
-			cout<<"purAmountInTerm"<<this->purAmountInTerm <<"\t" ;
-			cout<<"numberOfPlayerAndCoachBrought"<<this->numberOfPlayerAndCoachBrought<<"\t" ;
-			cout<<"numOfTitleInTerm " <<this->numOfTitleInTerm<<"\t" ; 	
+	bool valueBringingLastSeason () {
+		 	
 		} 			 
 					 
+	string favTacTics()	{
+		char tactic;
+		 do {
+		 	cout<<"Input the Favourite Tactics Of Manager (Pressing : P , Tiki Taka : T , SwingAttack : S)" ;//(Pressing : P , Tiki Taka : T , SwingAttack : S)
+		 cin>>tactic ;
+		 tactic=toupper(tactic) ;	 
+		 } while (tactic!='P'&&tactic!='T'&&tactic!='S') ;
+		 return tactic;
+		 
+	}		 	 
 					 
 					 
-					 
-					 } ;
+					 } ; 
 

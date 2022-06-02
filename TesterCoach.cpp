@@ -157,8 +157,21 @@ class Person:public FootballClub  {
 		cout<<"CardNumber :" ;
 		cin>>this->idCardNumber ;
 		cin.ignore();
-		cout<<"Full name :" ;
-		getline(cin,this->fullName) ;
+		cout << "Nhap vao ten : ";
+		getline(cin,this->fullName);
+		string s = "";
+		stringstream st(fullName);
+		string token;
+	while(st>>token) {
+		s += toupper(token[0]);
+		for(int i=1 ; i<token.length() ; i++) {
+	   		s += tolower(token[i]);
+		}
+			s += " ";
+	}
+		s.erase(s.length()-1);
+		fullName=s ;
+
 		cout<<"Age :" ;
 		cin>>this->age ;
 		cout<<"Salary :" ;
@@ -168,7 +181,7 @@ class Person:public FootballClub  {
 		void output() {
 		FootballClub::output() ; 
 		cout<<"CardNumber :"<<this->idCardNumber<<"\n";
-		cout<<"Full Name :" <<this->fullName <<"\n" ;
+		cout<<"Full Name :" <<this->fullName<<"\n" ;
 		cout<<"Age :" <<this->age<<"\n" ;
 		cout<<"Salary :"<<this->salary<<"\n" ;
 		

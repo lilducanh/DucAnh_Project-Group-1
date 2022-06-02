@@ -159,8 +159,20 @@ class Person : public FootballClub {
 			cout<<"\nCardNumber : " ;
 			cin>>this->idCardNumber;
 			cin.ignore();
-			cout<<"\nFull name : " ;
-			getline(cin,this->fullName) ;
+			cout << "Nhap vao ten : ";
+        	getline(cin,this->fullName);
+			string s = "";
+			stringstream st(fullName);
+			string token;
+	while(st>>token) {
+			s += toupper(token[0]);
+		for(int i=1 ; i<token.length() ; i++) {
+			s += tolower(token[i]);
+		}
+		s += " ";
+	}
+		s.erase(s.length()-1);
+		fullName=s ;
 			cout<<"\nAge : " ;
 			cin>>this->age ;
 			cout<<"\nSalary : " ;
@@ -244,15 +256,13 @@ class Management:public Person {
 		float cal ;
 		if(this->expManage>5&&this->qualityOfTransfer>7)  {
 			cal=this->getSalary()*1000 ;
-		cout<<"Salary:"<<cal ;
+		 	return cal ;
 		}
 		else {
 			cal=this->getSalary()*800 ;
-		cout<<"Salary:"<<cal ;
+		return cal;
 		}
-		
-			
-	       
+		 
 		}  
 			
 		//signingCondition da hoan thien
@@ -311,11 +321,11 @@ class listManager:public Management {
 		if(fo.is_open()){
 			for(int i=0;i<vm.size();i++){
 				fo<<"-----------------Manager Candidate"<<"---------------"<<endl;
-				fo<<"ID.Members: "<<vm[i].getIDCardNumber()<<endl;
-				fo<<"Full Name : "<<vm[i].getFullName()<<endl;
-				fo<<"Experience: "<<vm[i].getExp()<<endl;
-				fo<<"Quality of Transfer : "<<vm[i]. getQualityOfTransfer()<<endl;
-				fo<<"Purchase in Term :"<<vm[i].getpurAmountInTerm () <<endl;
+				fo<<"-ID.Members: "<<vm[i].getIDCardNumber()<<endl;
+				fo<<"-Full Name : "<<vm[i].getFullName()<<endl;
+				fo<<"-Experience: "<<vm[i].getExp()<<endl;
+				fo<<"-Quality of Transfer : "<<vm[i]. getQualityOfTransfer()<<endl;
+				fo<<"-Purchase in Term :"<<vm[i].getpurAmountInTerm () <<endl;
 				fo<<endl;
 			}
 			fo.close();

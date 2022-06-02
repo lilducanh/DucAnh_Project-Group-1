@@ -1,9 +1,9 @@
------------------Manager Candidate0---------------
+-----------------Manager Candidate---------------
 -ID.Members: 1
--Full Name : a
--Experience: 10
--Number of Wins : 100
+-Full Name : Alex Furguson
+-Experience: 30
+-Number of Wins : 1000
 -Number of Loses :20
--Number of Titles :100
+-Number of Titles :50
 
 ================================================

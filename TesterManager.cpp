@@ -1,6 +1,9 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
+#include<fstream>
+#include<string.h>
+#include<bits/stdc++.h>
 using namespace std;
 	static int  checkManagement=0;
 
@@ -238,6 +241,16 @@ class Management:public Person {
   		// calculateWage chua hoan thien
 		
 		long long calculateWage() {
+		float cal ;
+		if(this->expManage>5&&this->qualityOfTransfer>7)  {
+			cal=this->getSalary()*1000 ;
+		cout<<"Salary:"<<cal ;
+		}
+		else {
+			cal=this->getSalary()*800 ;
+		cout<<"Salary:"<<cal ;
+		}
+		
 			
 	       
 		}  
@@ -245,7 +258,7 @@ class Management:public Person {
 		//signingCondition da hoan thien
 		
  	    bool signingCondition () {
-			if(this->expManage>5&&this->purAmountInTerm<10000000&&this->qualityOfTransfer>=5) 
+			if(this->expManage>5&&this->purAmountInTerm<1000&&this->qualityOfTransfer>=5) 
 			return true ;
 			else  
 			return false ;
@@ -254,14 +267,17 @@ class Management:public Person {
 		//riskOfTerminateContract chua hoan thien
 		
 		void riskOfTerminateContract() {
-			
+			if(signingCondition()==false) 
+			cout<<"Contract was fire" ;
 		}	
 		
 		// oppRenewContract chua hoan thien
 		
 		void oppRenewContract () {
-		    
-		} 
+		    if(signingCondition()==true) 
+			cout<<"Continue work at clubs " ;
+		}	
+		
 		
 		//favTacTics da hoan thien	 
 					 
@@ -278,65 +294,6 @@ class Management:public Person {
 } ; 
 
 class listManager:public Management {
-//	public :
-//     	int n;
-//		vector<Management> vm ;
-//		void inputList(vector<Management> vm,int &n) { //
-//			for(int i=0 ; i<n ; i++) {
-//				cout << "\nEnter the information of each candidate :"<<endl;	
-//				cout<<"Candidate"<<i+1<<":"<<endl;	
-//				Management mn ;
-//				mn.input();
-//				vm.push_back(mn);
-//			}
-//		} 
-//		// nhap mot chuoi ung vien 
-//		void outputList(vector<Management> vm,int &n) { //vector<Management> vm,int &n
-//			cout << "\n-----------------------------\n";
-//			for(int i=0 ; i<vm.size() ; i++) {
-//				vm[i].output();
-//			
-//			}
-//		} 
-//	void chooseTheManager() {
-//		for(int i=0 ; i<vm.size() ; i++) {
-//			if(vm[i].signingCondition()==false) {
-//				vm.erase(vm.begin()+i);
-//				i--;
-//			}
-//		}
-//		
-//		if(vm.size()!=0) {
-//			checkManager++;
-//			for(int i=0 ; i<vm.size() ; i++) {
-//			for(int j=i ; j<vm.size() ; j++) {
-//				if(vm[i].getQualityOfTransfer()<vm[j].getQualityOfTransfer()) {
-//					Management tmp = vm[i];
-//					vm[i] = vm[j];
-//					vm[j] = tmp;
-//				}
-//			}
-//			}
-//			while(vm.size()!=1) {
-//			vm.pop_back();
-//			}
-//		} else {
-//				cout << "\n\noop!!!There are no suitable candidates in all that you have entered !!!\n\nWe need to find other candidates\n\nEnter the number of candidates you have selected : ";
-//			}
-//		}
-//		
-//		void scriptOfOwner() {
-//			cout << "Our team currently has no owner !!! \n\nYou need to enter the number of potential candidates for the position of team owner : ";
-//		this->inputList(vm,n);
-//		this->outputList(vm,n);
-//		this->chooseTheManager();
-//			while(checkManager==0) {
-//				this->inputList(vm,n);
-//				this->chooseTheManager();
-//			}
-//			cout << "\n\nWe reviewed each person's details and the fan vote took place !!!\n\nWe would like to announce the official owner of the team is Mr."<<vm[0].getFullName();
-//		}
-//}; 
 	public: 
 		int n;
 		vector<Management>vm;
@@ -349,8 +306,26 @@ class listManager:public Management {
 		Management on;
 			on.input();
 			vm.push_back(on);
-		}
-	}
+		} 
+		ofstream fo("D:\\Manager.txt");
+		if(fo.is_open()){
+			for(int i=0;i<vm.size();i++){
+				fo<<"-----------------Manager Candidate"<<"---------------"<<endl;
+				fo<<"ID.Members: "<<vm[i].getIDCardNumber()<<endl;
+				fo<<"Full Name : "<<vm[i].getFullName()<<endl;
+				fo<<"Experience: "<<vm[i].getExp()<<endl;
+				fo<<"Quality of Transfer : "<<vm[i]. getQualityOfTransfer()<<endl;
+				fo<<"Purchase in Term :"<<vm[i].getpurAmountInTerm () <<endl;
+				fo<<endl;
+			}
+			fo.close();
+		}else 
+			cout<<"File not found!!!!";
+	} 
+	
+        
+   		
+		   
 	void outputList(){
 		cout<<"----------------------------------------------------------------"<<endl<<endl<<endl;
 		cout << "Detailed list of each candidate :\n\n";
@@ -387,7 +362,7 @@ class listManager:public Management {
 		}
 		
 		void scriptOfManager() {
-			cout << "Our team currently has no owner !!! \n\nYou need to enter the number of potential candidates for the position of team owner : ";
+			cout << "Our team currently has no manager !!! \n\nYou need to enter the number of potential candidates for the position of team manager : ";
 			this->inputList();
 			this->outputList();
 			this->chooseTheManagement();
@@ -395,22 +370,28 @@ class listManager:public Management {
 				this->inputList();
 				this->chooseTheManagement();
 			}
-			cout << "\n\nWe reviewed each person's details and the fan vote took place !!!\n\nWe would like to announce the official owner of the team is Mr."<<vm[0].getFullName();
+			cout << "\n\nWe reviewed each person's details and the fan vote took place !!!\n\nWe would like to announce the official manager of the team is Mr."<<vm[0].getFullName();
+			ofstream fo("D:\\Official_Manager.txt");
+			if(fo.is_open()){
+				fo<<"--------------------Official Manager------------------ "<<endl;
+				fo<<"=================================================================" ;
+				fo<<"                   ID.Members: "<<vm[0].getIDCardNumber()<<endl;
+				fo<<"                   Full Name : "<<vm[0].getFullName()<<endl;
+				fo<<"                   Experience: "<<vm[0].getExp()<<endl;
+				fo<<"                   Quality of Transfer : "<<vm[0]. getQualityOfTransfer()<<endl;
+				fo<<"                   Purchase in Term :"<<vm[0].getpurAmountInTerm () <<endl;
+				fo<<endl;
+			fo.close();
+		}else
+			cout<<"Error!!!!";
 		}
-};
-// chon condition = true   so sanh quality , chon cao nhat ,in 
+		} ;
+
+
 int main() {
-//	Management mou;
-//	mou.input();
-//	mou.output();
-//    int n ;
-//     vector<Management> vm ;
-//    cout<<"Enter the number of candidates :" ;
-//    cin>>n;
-	listManager lm ;
+
+   listManager lm ;
    lm.scriptOfManager() ;
-    	//lm.chooseTheManager() ;
-//lm.scriptOfOwner() ;
  	
 	return 0;
-}
+} 

@@ -1,0 +1,7 @@
+-----------------Manager Candidate0---------------
+ID.Members: 4
+Full Name : a
+Experience: 8
+Quality of Transfer : 9
+Purchase in Term :10
+
